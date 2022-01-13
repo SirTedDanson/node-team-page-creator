@@ -1,0 +1,22 @@
+{
+  "name": "challenge-8-team_profile_generator",
+  "version": "1.0.0",
+  "description": "Profile Generator App",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SirTedDanson/team-profile-generator.git"
+  },
+  "author": "Danson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SirTedDanson/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/SirTedDanson/team-profile-generator#readme"
+}
