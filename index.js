@@ -184,13 +184,13 @@ const internPrompts = () => {
       },
       {
         type: 'input',
-        name: 'internGithub',
-        message: 'Enter the team intern Github username',
-        validate: internGithub => {
-          if (internGithub) {
+        name: 'internSchool',
+        message: 'Enter the team intern school name',
+        validate: internSchool => {
+          if (internSchool) {
             return true;
           } else {
-            console.log('Please enter the team intern Github username!');
+            console.log('Please enter the team intern school name!');
             return false;
           }
         }
