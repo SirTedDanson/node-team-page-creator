@@ -168,3 +168,5 @@ class Team {
 }
 
 new Team().createTeamMember('manager')
+
+module.exports = Team;
