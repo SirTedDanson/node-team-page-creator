@@ -1,11 +1,12 @@
+/* Change icon color to white */
 body i {
   color: white;
 }
-
+/* Add box shadow to team member ID */
 .box-shadow {
   box-shadow: 0 0.125em 0.25em rgb(10 10 10 / 10%);
 }
-
+/* Extra padding for team member information */
 .content p {
   padding: 0.5rem 1rem;
 }

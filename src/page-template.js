@@ -1,5 +1,7 @@
+// Global array, fills with selected team members generated html
 var myTeamHTML = [];
 
+// generate role icon based on team member role
 const roleIcon = newTeamMember => {
   switch (newTeamMember.getRole()) {
     case "Manager":
@@ -10,7 +12,7 @@ const roleIcon = newTeamMember => {
       return `fas fa-user-graduate`
   }
 }
-
+// generate role dependent html for each of the team member cards
 const roleDepHTML = newTeamMember => {
   switch (newTeamMember.getRole()) {
     case "Manager":
@@ -21,41 +23,45 @@ const roleDepHTML = newTeamMember => {
       return `<p>${newTeamMember.getSchool()}</p>`
   }
 };
-
+// function for generating a team member card 
+// interpolates properties of the newTeamMember object
 const generateTeammate = newTeamMember => {
-  return `<div class="column is-one-third">
-            <div class="card team-member">
-              <header class="card-header has-background-info">
-                <p class="card-header-title has-text-white is-size-1 pb-0">
-                  ${newTeamMember.getName()}
-                </p>
-              </header>
-              <header class="card-header has-background-info">
-                <div class="card-header-title pt-0">
-                  <span class="icon icon is-large">
-                    <i class="${roleIcon(newTeamMember)} fa-2x"></i>
-                  </span>
-                  <p class="has-text-white is-size-3 pl-2">
-                  ${newTeamMember.getRole()}
-                  </p>
-                </div>
-              </header>
-              <div class="card-content">
-                <div class="content pb-5">
-                  <p class="box-shadow">ID: 1</p>
-                  <p>Email: <a href = "mailto: ${newTeamMember.getEmail()}">${newTeamMember.getEmail()}</a></p>
-                  ${roleDepHTML(newTeamMember)}
-                </div>
-              </div>
-            </div>
+  return ` <!-- Team Member Card -->
+    <div class="column is-one-third">
+      <div class="card team-member">
+        <header class="card-header has-background-info">
+          <p class="card-header-title has-text-white is-size-1 pb-0">
+            ${newTeamMember.getName()}
+          </p>
+        </header>
+        <header class="card-header has-background-info">
+          <div class="card-header-title pt-0">
+            <span class="icon icon is-large">
+              <i class="${roleIcon(newTeamMember)} fa-2x"></i>
+            </span>
+            <p class="has-text-white is-size-3 pl-2">
+            ${newTeamMember.getRole()}
+            </p>
           </div>
-          `
+        </header>
+        <div class="card-content">
+          <div class="content pb-5">
+            <p class="box-shadow">ID: 1</p>
+            <p>Email: <a href = "mailto: ${newTeamMember.getEmail()}">${newTeamMember.getEmail()}</a></p>
+            ${roleDepHTML(newTeamMember)}
+          </div>
+        </div>
+      </div>
+    </div> \n`
 }
-
+// generates html from the newTeamMember object (Manager, Engineer, Intern)
+// adds generated html to an array
+// will be drawn from to populate the primary page HTML in generatePage
 const addToMyTeam = newTeamMember => {
   myTeamHTML.push(generateTeammate(newTeamMember));
 }
-
+// creates the template literal for writing to the index.html file
+// interpolates the html generated from the team member objects
 const generatePage = () => {
   return`<!DOCTYPE html>
 <html lang="en">
@@ -91,5 +97,5 @@ const generatePage = () => {
 
 </html>`
 }
-
+// export the ability to create team member html and the entire pages html
 module.exports = { addToMyTeam, generatePage } 

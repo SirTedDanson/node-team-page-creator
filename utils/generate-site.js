@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-// writing files
+// writes the template literal from generatePage to the index.HTML file
 const writeFile = fileContent => {
   return new Promise((resolve, reject) => {
     fs.writeFile('./dist/index.html', fileContent, err => {
@@ -11,10 +11,14 @@ const writeFile = fileContent => {
 
       resolve({
         ok: true,
-        message: 'File created!'
+        message: `
+        ================================================================
+        Team Profile Page Created: http://127.0.0.1:5500/dist/index.html
+        ================================================================
+        `
       });
     });
   });
 };
-
+// export the ability to write a file to the file system
 module.exports = writeFile

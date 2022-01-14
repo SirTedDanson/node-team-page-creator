@@ -5,18 +5,31 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+// Construct Team object template
 class Team {
   constructor() {
   }
 
+  // App initialization message
+  initializeTeam () {
+    console.log(`
+  ===================================
+  Initializing Team Profile Generator
+  ===================================
+  `);
+  // Add first team member, the manager
+  // Team object initializeTeam method activates createTeamMember method
+  this.createTeamMember('manager')
+  }
+  // Method for creating a new team member, creates a newTeamMember object from the lib/ classes
   createTeamMember(employeeType) {
 
     console.log(`
-  ======================
-  Team Profile Generator
-  ======================
+  ==========================
+  Please add a team ${employeeType}
+  ==========================
   `);
-
+    // initialize inqurirer to gather user input
     inquirer
       .prompt([
         {
@@ -59,7 +72,9 @@ class Team {
           }
         },
       ])
+      // Prompt the user for additional information depending on the team member role
       .then(employeeInfo => {
+        // If team member is manager aqcuire the office number of the manager
         if (employeeType === 'manager') {
           inquirer
             .prompt([
@@ -77,16 +92,22 @@ class Team {
                 }
               },
             ])
+            // combine user input data from previous questions
             .then(officeNumber => {
               const managerInfo = { ...employeeInfo, ...officeNumber }
               return managerInfo
             })
+            // create a new Manager object with the provided user input data
             .then(({ name, id, email, officeNumber }) => {
               const newTeamMember = new Manager(name, id, email, officeNumber)
+              // Generate template literal HTML from Manager object
+              // Add generated HTML to myTeamHTML array
               addToMyTeam(newTeamMember)
+              // Prompt user to add another team member or complete the team
               this.addTeamMember()
             })
         }
+        // If team member is engineer aquire github information of the engineer
         if (employeeType === 'engineer') {
           inquirer
             .prompt([
@@ -104,16 +125,22 @@ class Team {
                 }
               },
             ])
+            // combine user input data from previous questions
             .then(github => {
               const engineerInfo = { ...employeeInfo, ...github }
               return engineerInfo
             })
+            // create a new Engineer object with the provided user input data
             .then(({ name, id, email, github }) => {
               const newTeamMember = new Engineer(name, id, email, github)
+              // Generate template literal  HTML from Engineer object
+              // Add generated HTML to myTeamHTML array
               addToMyTeam(newTeamMember)
+              // Prompt user to add another team member or complete the team
               this.addTeamMember()
             })
         }
+        // If team member is intern aquire school information
         if (employeeType === 'intern') {
           inquirer
             .prompt([
@@ -132,18 +159,22 @@ class Team {
               },
             ])
             .then(school => {
+              // combine user input data from previous questions
               const internInfo = { ...employeeInfo, ...school }
               return internInfo
             })
             .then(({ name, id, email, school }) => {
               const newTeamMember = new Intern(name, id, email, school)
+              // Generate template literal HTML from Engineer object
+              // Add generated HTML to myTeamHTML array
               addToMyTeam(newTeamMember)
+              // Prompt user to add another team member or complete the team
               this.addTeamMember()
             })
         }
       })
   };
-
+  // Method for adding a team member
   addTeamMember() {
     inquirer
       .prompt([
@@ -153,23 +184,31 @@ class Team {
           message: 'Would you like to add an engineer or intern to your team?',
           choices: ['Engineer', 'Intern', 'Finish']
         },
-      ]).then(({ role }) => {
+      ])
+      // Create a new Engineer or Intern team member based on user selection
+      .then(({ role }) => {
         if (role === 'Engineer') {
           this.createTeamMember('engineer')
         } else if (role === 'Intern') {
           this.createTeamMember('intern')
         } else {
+          // If user chooses 'Finish' the generateTeam method is activated
+          // This ultimately returns a template literal with HTML
           this.generateTeam()
         }
       })
   };
-
+  // myTeamHTML is looped through and each team members HTML is interpolated
+  // into the generatePage function template literal which fully formats the HTML
   generateTeam() {
     const pageHTML = generatePage()
-    console.log("Team Profile Page Created")
-    return writeFile(pageHTML);
+    // Write file to the file system
+    // Inform user if application was successful
+    return writeFile(pageHTML).then(writeFileResponse => {
+      console.log(writeFileResponse.message);
+    })
   }
-
 }
-
-new Team().createTeamMember('manager')
+// Start app
+// Create new Team object
+new Team().initializeTeam ()
