@@ -1,11 +1,12 @@
 const inquirer = require('inquirer');
+const { addToMyTeam, generatePage } = require('./src/page-template');
+const writeFile = require('./utils/generate-site')
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
 class Team {
   constructor() {
-    this.teamMembers = [];
   }
 
   createTeamMember(employeeType) {
@@ -81,9 +82,8 @@ class Team {
               return managerInfo
             })
             .then(({ name, id, email, officeNumber }) => {
-              this.teamMembers.push(new Manager(name, id, email, officeNumber));
-              console.log('\n ================= Current Team Roster =================')
-              console.log(this.teamMembers);
+              const newTeamMember = new Manager(name, id, email, officeNumber)
+              addToMyTeam(newTeamMember)
               this.addTeamMember()
             })
         }
@@ -109,9 +109,8 @@ class Team {
               return engineerInfo
             })
             .then(({ name, id, email, github }) => {
-              this.teamMembers.push(new Engineer(name, id, email, github));
-              console.log('\n ================= Current Team Roster =================')
-              console.log(this.teamMembers);
+              const newTeamMember = new Engineer(name, id, email, github)
+              addToMyTeam(newTeamMember)
               this.addTeamMember()
             })
         }
@@ -137,9 +136,8 @@ class Team {
               return internInfo
             })
             .then(({ name, id, email, school }) => {
-              this.teamMembers.push(new Intern(name, id, email, school));
-              console.log('\n ================= Current Team Roster =================')
-              console.log(this.teamMembers);
+              const newTeamMember = new Intern(name, id, email, school)
+              addToMyTeam(newTeamMember)
               this.addTeamMember()
             })
         }
@@ -161,12 +159,17 @@ class Team {
         } else if (role === 'Intern') {
           this.createTeamMember('intern')
         } else {
-          console.log("Team Profile Page Created")
+          this.generateTeam()
         }
       })
+  };
+
+  generateTeam() {
+    const pageHTML = generatePage()
+    console.log("Team Profile Page Created")
+    return writeFile(pageHTML);
   }
+
 }
 
 new Team().createTeamMember('manager')
-
-module.exports = Team;

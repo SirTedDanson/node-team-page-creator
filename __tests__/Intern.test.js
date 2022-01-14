@@ -16,5 +16,5 @@ test ('Retrieve intern information', () => {
   expect(intern.getId()).toBe('33')
   expect(intern.getEmail()).toBe('Javascript@Code.com');
   expect(intern.getRole()).toBe('Intern')
-  expect(intern.getSchool()).toBe('Attending Amazing University')
+  expect(intern.getSchool()).toBe('School: Amazing University')
 });

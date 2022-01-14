@@ -2,13 +2,10 @@ body i {
   color: white;
 }
 
-/* .team-member {
-  width: 320px;
-} */
-
 .box-shadow {
   box-shadow: 0 0.125em 0.25em rgb(10 10 10 / 10%);
 }
+
 .content p {
   padding: 0.5rem 1rem;
 }
