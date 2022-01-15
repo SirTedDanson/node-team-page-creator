@@ -237,7 +237,9 @@
 
   ## Tests
 
-  - Building application tests. View [Demonstration ]
+  - Tested with Jest.
+
+  ![Application Screenshot](./images/test-demo.gif)
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
