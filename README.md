@@ -239,7 +239,7 @@
 
   - Tested with Jest.
 
-  
+  ![Test GIF](./images/test-demo.gif)
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
