@@ -10,13 +10,13 @@
   <br />
   <br />
 
-  <h1 align="center">README Generator for GitHub</h1>
+  <h1 align="center">Team Profile Generator</h1>
 
   <p align="center">
     <a href="https://github.com/SirTedDanson/team-profile-generator"><strong>Project Documents »</strong></a>
     <br />
     <br />
-    <a href="https://watch.screencastify.com/v/7SAHHvTTdtmEqf3tBI7H">View Demo</a>
+    <a href="">View Demo</a>
     ·
     <a href="https://github.com/SirTedDanson/team-profile-generator/issues">Report Bug</a>
     ·
