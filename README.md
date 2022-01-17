@@ -50,7 +50,7 @@
 
   ## Screenshot
 
-  ![Application Screenshot](./images/application-screenshot.PNG)
+  ![Application Screenshot](./images/application-screenshot2.PNG)
   ![Application GIF](./images/demo-gif.gif)
   
 ---
