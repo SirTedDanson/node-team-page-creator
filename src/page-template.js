@@ -46,7 +46,7 @@ const generateTeammate = newTeamMember => {
         </header>
         <div class="card-content">
           <div class="content pb-5">
-            <p class="box-shadow">ID: 1</p>
+            <p class="box-shadow">ID: ${newTeamMember.getId()}</p>
             <p>Email: <a href = "mailto: ${newTeamMember.getEmail()}">${newTeamMember.getEmail()}</a></p>
             ${roleDepHTML(newTeamMember)}
           </div>
