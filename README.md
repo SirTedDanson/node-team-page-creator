@@ -16,7 +16,7 @@
     <a href="https://github.com/SirTedDanson/team-profile-generator"><strong>Project Documents »</strong></a>
     <br />
     <br />
-    <a href="">View Demo</a>
+    <a href="https://watch.screencastify.com/v/FEB6gSPYYXN7gcTxO353">View Demo</a>
     ·
     <a href="https://github.com/SirTedDanson/team-profile-generator/issues">Report Bug</a>
     ·
@@ -237,7 +237,7 @@
 
   ## Tests
 
-  - Tested with Jest.
+  - Tested with Jest. [View Demonstration](https://watch.screencastify.com/v/FEB6gSPYYXN7gcTxO353)
 
   ![Test GIF](./images/test-demo.gif)
 
