@@ -21,4 +21,4 @@ const writeFile = fileContent => {
   });
 };
 // export the ability to write a file to the file system
-module.exports = writeFile
+module.exports = writeFile;
