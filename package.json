@@ -21,6 +21,8 @@
   "homepage": "https://github.com/SirTedDanson/team-profile-generator#readme",
   "dependencies": {
     "inquirer": "^8.2.0",
-    "jest": "^27.4.7"
-  }
+    "jest": "^27.4.7",
+    "open": "^8.4.0"
+  },
+  "keywords": []
 }

@@ -5,11 +5,11 @@ var myTeamHTML = [];
 const roleIcon = newTeamMember => {
   switch (newTeamMember.getRole()) {
     case "Manager":
-      return `fas fa-mug-hot`
+      return `fas fa-mug-hot`;
     case "Engineer":
-      return `fas fa-glasses`
+      return `fas fa-glasses`;
     case "Intern":
-      return `fas fa-user-graduate`
+      return `fas fa-user-graduate`;
   }
 }
 // generate role dependent html for each of the team member cards
@@ -53,13 +53,13 @@ const generateTeammate = newTeamMember => {
         </div>
       </div>
     </div> \n`
-}
+};
 // generates html from the newTeamMember object (Manager, Engineer, Intern)
 // adds generated html to an array
 // will be drawn from to populate the primary page HTML in generatePage
 const addToMyTeam = newTeamMember => {
   myTeamHTML.push(generateTeammate(newTeamMember));
-}
+};
 // creates the template literal for writing to the index.html file
 // interpolates the html generated from the team member objects
 const generatePage = () => {
@@ -96,6 +96,6 @@ const generatePage = () => {
 </body>
 
 </html>`
-}
+};
 // export the ability to create team member html and the entire pages html
-module.exports = { addToMyTeam, generatePage } 
+module.exports = { addToMyTeam, generatePage };
