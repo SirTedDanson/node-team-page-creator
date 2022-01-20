@@ -16,11 +16,11 @@ const roleIcon = newTeamMember => {
 const roleDepHTML = newTeamMember => {
   switch (newTeamMember.getRole()) {
     case "Manager":
-      return `<p>Office Number: ${newTeamMember.officeNumber}</p>`
+      return `Office Number: ${newTeamMember.officeNumber}`
     case "Engineer":
-      return `<p>Github: <a href = "${newTeamMember.getGithub()}">${newTeamMember.getGithub()}</a></p>`
+      return `Github: <a href = "${newTeamMember.getGithub()}">${newTeamMember.getGithub()}</a>`
     case "Intern":
-      return `<p>${newTeamMember.getSchool()}</p>`
+      return `${newTeamMember.getSchool()}`
   }
 };
 // function for generating a team member card 
@@ -30,13 +30,13 @@ const generateTeammate = newTeamMember => {
     <div class="column is-one-third">
       <div class="card team-member">
         <header class="card-header has-background-info">
-          <p class="card-header-title has-text-white is-size-1 pb-0">
+          <p class="card-header-title has-text-white is-size-1">
             ${newTeamMember.getName()}
           </p>
         </header>
         <header class="card-header has-background-info">
           <div class="card-header-title pt-0">
-            <span class="icon icon is-large">
+            <span class="icon icon is-large has-text-white">
               <i class="${roleIcon(newTeamMember)} fa-2x"></i>
             </span>
             <p class="has-text-white is-size-3 pl-2">
@@ -46,9 +46,9 @@ const generateTeammate = newTeamMember => {
         </header>
         <div class="card-content">
           <div class="content pb-5">
-            <p class="box-shadow">ID: 1</p>
-            <p>Email: <a href = "mailto: ${newTeamMember.getEmail()}">${newTeamMember.getEmail()}</a></p>
-            ${roleDepHTML(newTeamMember)}
+            <p class="box py-2 px-4">ID: 1</p>
+            <p class="py-2 px-4">Email: <a href = "mailto: ${newTeamMember.getEmail()}">${newTeamMember.getEmail()}</a></p>
+            <p class="py-2 px-4">${roleDepHTML(newTeamMember)}</p>
           </div>
         </div>
       </div>
