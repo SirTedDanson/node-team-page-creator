@@ -10,7 +10,7 @@
   <br />
   <br />
 
-  <h1 align="center">Team Profile Generator</h1>
+  <h1 align="center">Node Team Page Creator</h1>
 
   <p align="center">
     <a href="https://github.com/SirTedDanson/team-profile-generator"><strong>Project Documents »</strong></a>
